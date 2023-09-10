@@ -1,6 +1,6 @@
 const axios = require('axios').default;
-const entries = require('./getData');
-console.log(entries);
+const getEntries = require('./getData');
+getEntries().then(entries => console.log(entries)).catch(error => console.error(error));
 
 const postBlog = async entries => { // さっき取得したエントリ情報を引数に
   const title = `${new Date().toLocaleDateString()}の退職エントリ`;

@@ -18,7 +18,7 @@ const includesIgnoreSites = value => IGNORE_SITES.some(_ => value.includes(_));
 const includesRetirementWords = value =>
   RETIREMENT_WORDS.some(_ => value.includes(_));
 
-const getEntries = async () => {
+module.exports = async function getEntries() {
   const retirementEntries = [];
   for (let i = 0; ; i += 10) { // 検索結果10件ずつを取得
     const res = await client.fetch(`${BASE_URL_GOOGLE}${i}`);
@@ -41,7 +41,3 @@ const getEntries = async () => {
   }
   return retirementEntries;
 };
-
-getEntries().then(entries => console.log(entries)).catch(error => console.error(error));
-
-module.exports = entries;
