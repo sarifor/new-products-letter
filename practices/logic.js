@@ -23,13 +23,16 @@ const getEntries = async () => {
   for (let i = 0; ; i += 10) { // 検索結果10件ずつを取得
     const res = await client.fetch(`${BASE_URL_GOOGLE}${i}`);
     const contents = res.$('div.r > a > h3');
+    console.log(contents); // Status 429 returned
     if (contents.length === 0) {
       // 検索結果が無くなったら終わり
       break;
     }
+    // console.log(contents);
     contents.each((index, elm) => {
       const url = elm.parent.attribs.href;
       const title = elm.childNodes[0].data;
+      // console.log(url, title);
       if (!title) {
         return;
       }
@@ -40,3 +43,5 @@ const getEntries = async () => {
   }
   return retirementEntries;
 };
+
+getEntries().then(entries => console.log(entries)).catch(error => console.error(error));
