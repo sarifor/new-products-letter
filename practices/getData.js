@@ -43,3 +43,5 @@ const getEntries = async () => {
 };
 
 getEntries().then(entries => console.log(entries)).catch(error => console.error(error));
+
+module.exports = entries;
