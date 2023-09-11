@@ -4,9 +4,10 @@ let entries;
 
 getEntries().then(data => {
   entries = data;
+  // console.log(entries, "hihihi");
 
   if (entries) {
-    console.log(entries); // can get data
+    console.log(entries, "good morning"); // not reached
     const postBlog = async entries => { // さっき取得したエントリ情報を引数に
       const title = `${new Date().toLocaleDateString()}の退職エントリ`;
       let content = '';
@@ -35,6 +36,8 @@ getEntries().then(data => {
       );
     };
     postBlog();    
+  } else {
+    console.log("Cannot get data")
   }
 }).catch(
   error => console.error(error)

@@ -22,6 +22,7 @@ module.exports = async function getEntries() {
   const retirementEntries = [];
   for (let i = 0; ; i += 10) { // 検索結果10件ずつを取得
     const res = await client.fetch(`${BASE_URL_GOOGLE}${i}`);
+    // console.log(res); // can get data
     console.log(res.response.statusCode);
     const contents = res.$('a > h3');
     if (contents.length === 0) {
@@ -31,13 +32,16 @@ module.exports = async function getEntries() {
     contents.each((index, elm) => {
       const url = elm.parent.attribs.href;
       const title = elm.childNodes[0].data;
+      // console.log(title); // can get data
       if (!title) {
         return;
       }
-      if (!includesIgnoreSites(url) && includesRetirementWords(title)) {
+      if (!includesIgnoreSites(url)) {
         retirementEntries.push({ url: url, title: title });
+        // console.log(retirementEntries, "good night");
       }
     });
   }
+  // console.log(retirementEntries, "hi");
   return retirementEntries;
 };
