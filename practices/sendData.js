@@ -1,17 +1,13 @@
 const axios = require('axios').default;
 const getEntries = require('./getData');
-// let entries;
 
-getEntries().then(data => {
-  // entries = data;
-  // console.log(entries, "hihihi");
-  let entries = Array.from(data);
+getEntries().then(entries => {
   if (Array.isArray(entries) && entries.length > 0) {
-    console.log(entries, "good morning"); // reached
     const postBlog = async entries => { // さっき取得したエントリ情報を引数に
       const title = `${new Date().toLocaleDateString()}の退職エントリ`;
       let content = '';
-      for (const entry of entries) { // not iterable
+      for (const entry of entries) {
+        console.log(entry); // can get data
         if (content !== '') {
           content += '\r\n';
         }
@@ -20,6 +16,7 @@ getEntries().then(data => {
       if (content === '') {
         return;
       }
+      return; // temp
       const data = `<?xml version="1.0" encoding="utf-8"?>
       <entry xmlns="http://www.w3.org/2005/Atom"
              xmlns:app="http://www.w3.org/2007/app">
@@ -35,7 +32,7 @@ getEntries().then(data => {
         // { auth: { username: /* はてなID */, password: /* APIキー */ } }
       );
     };
-    postBlog();    
+    postBlog(entries);    
   } else {
     console.log("Cannot get data")
   }
