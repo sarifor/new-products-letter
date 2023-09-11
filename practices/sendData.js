@@ -7,7 +7,6 @@ getEntries().then(entries => {
       const title = `${new Date().toLocaleDateString()}の退職エントリ`;
       let content = '';
       for (const entry of entries) {
-        console.log(entry); // can get data
         if (content !== '') {
           content += '\r\n';
         }
@@ -16,7 +15,6 @@ getEntries().then(entries => {
       if (content === '') {
         return;
       }
-      return; // temp
       const data = `<?xml version="1.0" encoding="utf-8"?>
       <entry xmlns="http://www.w3.org/2005/Atom"
              xmlns:app="http://www.w3.org/2007/app">
