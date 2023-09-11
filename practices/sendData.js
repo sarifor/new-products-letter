@@ -1,17 +1,17 @@
 const axios = require('axios').default;
 const getEntries = require('./getData');
-let entries;
+// let entries;
 
 getEntries().then(data => {
-  entries = data;
+  // entries = data;
   // console.log(entries, "hihihi");
-
-  if (entries) {
-    console.log(entries, "good morning"); // not reached
+  let entries = Array.from(data);
+  if (Array.isArray(entries) && entries.length > 0) {
+    console.log(entries, "good morning"); // reached
     const postBlog = async entries => { // さっき取得したエントリ情報を引数に
       const title = `${new Date().toLocaleDateString()}の退職エントリ`;
       let content = '';
-      for (const entry of entries) {
+      for (const entry of entries) { // not iterable
         if (content !== '') {
           content += '\r\n';
         }
