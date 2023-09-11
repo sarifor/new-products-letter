@@ -1,6 +1,10 @@
 {
   "name": "practices",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.17.1",
+    "npm": "9.6.7"
+  },
   "description": "",
   "main": "logic.js",
   "dependencies": {
