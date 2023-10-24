@@ -2,7 +2,7 @@ require('dotenv').config();
 const axios = require('axios').default;
 const getEntries = require('./getData');
 
-getEntries().then(entries => {
+module.exports = getEntries().then(entries => {
   if (Array.isArray(entries) && entries.length > 0) {
     const postBlog = async entries => { // さっき取得したエントリ情報を引数に
       const title = `${new Date().toLocaleDateString()}の退職エントリ`;
