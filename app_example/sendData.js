@@ -5,7 +5,7 @@ require('dotenv').config();
 const axios = require('axios').default;
 const getEntries = require('./getData');
 
-app.get("/", (req, res) => {
+module.exports = app.get("/", (req, res) => {
   getEntries().then(entries => {
     if (Array.isArray(entries) && entries.length > 0) {
       const postBlog = async entries => { // さっき取得したエントリ情報を引数に
