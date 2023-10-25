@@ -6,10 +6,6 @@ const functions = require('@google-cloud/functions-framework');
 // const axios = require('axios').default;
 // const getEntries = require('./getData');
 
-functions.http('helloWorld', (req, res) => {
-  res.send('Hello, World');
-});
-
 // module.exports = app.get("/", (req, res) => {
 //   getEntries().then(entries => {
 //     if (Array.isArray(entries) && entries.length > 0) {
