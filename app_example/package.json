@@ -6,7 +6,7 @@
     "npm": "9.6.7"
   },
   "description": "This is code practice referring to https://qiita.com/kitta81/items/fd1e6cf217e6fac85122",
-  "main": "sendData.js",
+  "main": "index.js",
   "dependencies": {
     "@google-cloud/functions-framework": "^3.3.0",
     "axios": "^1.5.1",
