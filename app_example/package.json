@@ -8,13 +8,14 @@
   "description": "This is code practice referring to https://qiita.com/kitta81/items/fd1e6cf217e6fac85122",
   "main": "sendData.js",
   "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
     "axios": "^1.5.1",
     "cheerio-httpcli": "^0.8.3",
     "dotenv": "^16.3.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node sendData.js"
+    "start": "functions-framework --target=helloWorld"
   },
   "keywords": [
     "JavaScript",

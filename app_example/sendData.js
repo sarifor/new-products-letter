@@ -1,13 +1,14 @@
-const express = require("express");
-const app = express();
-const PORT = 8080;
+const functions = require('@google-cloud/functions-framework');
+// const express = require("express");
+// const app = express();
+// const PORT = 8080;
 // require('dotenv').config();
 // const axios = require('axios').default;
 // const getEntries = require('./getData');
 
-exports.handler = (req, res) => {
-  res.status(200).send("OK");
-};
+functions.http('helloWorld', (req, res) => {
+  res.send('Hello, World');
+});
 
 // module.exports = app.get("/", (req, res) => {
 //   getEntries().then(entries => {
@@ -67,6 +68,6 @@ exports.handler = (req, res) => {
 //   res.send("OK")
 // });
 
-app.listen(PORT, () => {
+/* app.listen(PORT, () => {
   console.log(`Listen : ${PORT}`);
-});
+}); */
